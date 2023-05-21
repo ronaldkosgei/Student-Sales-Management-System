@@ -1,6 +1,7 @@
 package com.studentsalesmanagementsystem.dto;
 
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import lombok.*;
@@ -16,12 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class OrderDto {
 
     @Id
-    @SequenceGenerator(
-            name = "order_sequence",
-            sequenceName = "order_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(generator = "order_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String orderId;
 
     private  String items;

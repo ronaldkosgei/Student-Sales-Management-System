@@ -1,6 +1,7 @@
 package com.studentsalesmanagementsystem.dto;
 
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import lombok.*;
@@ -17,12 +18,7 @@ public class InventoryDto {
 
 
     @Id
-    @SequenceGenerator(
-            name = "inventory_sequence",
-            sequenceName = "inventory_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(generator = "inventory_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String productId;
 
     private String productName;

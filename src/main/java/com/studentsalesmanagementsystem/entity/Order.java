@@ -2,8 +2,8 @@ package com.studentsalesmanagementsystem.entity;
 
 
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,12 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Order {
 
     @Id
-    @SequenceGenerator(
-            name = "order_sequence",
-            sequenceName = "order_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(generator = "order_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String orderId;
 
     private  String items;

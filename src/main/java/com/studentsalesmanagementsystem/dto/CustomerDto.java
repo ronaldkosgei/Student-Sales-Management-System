@@ -1,8 +1,8 @@
 package com.studentsalesmanagementsystem.dto;
 
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -16,12 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class CustomerDto {
 
     @Id
-    @SequenceGenerator(
-            name = "customer_sequence",
-            sequenceName = "customer_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(generator = "customer_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String customerId;
 
     private String firstName;

@@ -33,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Mono<CustomerDto> getCustomerById(String customerId) {
-        Mono<Customer> customerMono = customerRepository.findById(String.valueOf(customerId));
+        Mono<Customer> customerMono = customerRepository.findById(customerId);
         return customerMono.map(customer -> CustomerMapper.mapToCustomerDto(customer));
     }
 
